@@ -1002,7 +1002,8 @@ def port_scanning(
 	'''
 	output_file_name = file_name if file_name else 'ports.json'
 	port_results_file = results_dir + '/' + output_file_name
-
+	with open(port_results_file, 'w'):
+		pass
 	domain_name = domain.name if domain else subdomain
 	notification = Notification.objects.all()
 	if notification and notification[0].send_scan_status_notif:
